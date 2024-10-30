@@ -3,8 +3,9 @@ import React from "react";
 export default function StudentTable({
   students,
   toggleModalForm,
-  toogleModalDetail,
   handleEditStudent,
+  handleDeleteStudent,
+  handleInfoStudent,
 }) {
   return (
     <div className="table-responsive">
@@ -16,7 +17,6 @@ export default function StudentTable({
               <button
                 onClick={() => toggleModalForm(false)}
                 className="btn btn-primary float-end fw-bold"
-                o
               >
                 <i className="bi bi-plus-circle"> Add New</i>
               </button>
@@ -38,17 +38,20 @@ export default function StudentTable({
               <td>
                 <button
                   className="btn btn-outline-success btn-sm me-2"
-                  onClick={toogleModalDetail}
+                  onClick={() => handleInfoStudent(student)}
                 >
                   <i className="bi bi-eye"></i>
                 </button>
                 <button
-                  onClick={() => toggleModalForm(true)}
+                  onClick={() => handleEditStudent(student, index)}
                   className="btn btn-outline-warning btn-sm me-2"
                 >
                   <i className="bi bi-pencil"></i>
                 </button>
-                <button className="btn btn-outline-danger btn-sm">
+                <button
+                  onClick={() => handleDeleteStudent(index)}
+                  className="btn btn-outline-danger btn-sm"
+                >
                   <i className="bi bi-trash"></i>
                 </button>
               </td>

@@ -86,9 +86,23 @@ export default function StudentForm({
           </form>
         </div>
         <div className="modal-footer">
-          <button onClick={onSubmit} type="button" className="btn btn-primary">
-            <i className="bi bi-check2"></i> Submit
-          </button>
+          {isEdit ? (
+            <button
+              onClick={onSubmit}
+              type="button"
+              className="btn btn-warning"
+            >
+              <i className="bi bi-pencil-square"></i> Update
+            </button>
+          ) : (
+            <button
+              onClick={onSubmit}
+              type="button"
+              className="btn btn-primary"
+            >
+              <i className="bi bi-save2-fill"></i> Submit
+            </button>
+          )}
         </div>
       </div>
     </div>
